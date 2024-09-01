@@ -51,7 +51,7 @@ void removeNewline(char *string) {
     register unsigned i = 0;
 
     while (*(string + i) != '\0') {
-        if (*(string + i++) == '\n') { shiftStringLeft(string, i); }
+        if (*(string + i++) == '\n') { shiftStringLeft(string, i - 1); }
     }
 }
 
