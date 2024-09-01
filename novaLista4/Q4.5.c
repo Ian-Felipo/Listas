@@ -50,8 +50,8 @@ void shiftStringLeft(char *string, unsigned startingIndex) {
 void removeNewline(char *string) {
     register unsigned i = 0;
 
-    while (*(string + i) != '\0') {
-        if (*(string + i++) == '\n') { shiftStringLeft(string, i - 1); }
+    while (*(string + i++) != '\0') {
+        while (*(string + i - 1) == '\n') { shiftStringLeft(string, i - 1); }
     }
 }
 
