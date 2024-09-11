@@ -60,3 +60,33 @@ void countString(char *string, unsigned *size) {
 
     while (*(string + (*size)++) != '\0');
 }
+
+/*
+
+# include <stdio.h>
+# include <stdlib.h>
+
+void function(char *string, unsigned startingIndex) {
+    if () {  }
+    
+    while (*(string + startingIndex++) != '\0') { 
+       *(string + startingIndex - 1) = *(string + startingIndex);
+    }
+    
+    *(string + startingIndex) = *(string + startingIndex);
+} 
+
+int main() {
+    char string[100] = "AbAbAbAbAbAbA";
+    
+    puts(string);
+    puts("");
+    
+    function(string, 0);
+    
+    puts(string);
+    
+    return 0;
+}
+
+*/

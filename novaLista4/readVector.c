@@ -8,9 +8,11 @@ bool checkFirstValidChar(const char);
 
 void determineSign(char *const, signed char *const);
 
-void buildNumber(char *const, int *const);
+unsigned char charToDigit(const char);
 
-bool checkFirstValidChar(const char);
+void buildInt(char *const, int *const);
+
+bool checkLastChar(const char);
 
 bool readInt(int *const);
 
@@ -25,38 +27,43 @@ int main() {
     return 0;
 }
 
-char getFirstValidChar(char *const ptr); {
+void getFirstValidChar(char *const ptr) {
     while ((*ptr = getchar()) == ' ' || *ptr == '\n' || *ptr == EOF);
 }
 
 bool checkFirstValidChar(const char c) {
-    return !isdigit(c) && c != '-';   
+    return isdigit(c) || c == '-';   
 }
 
 void determineSign(char *const ptr_c, signed char *const ptr_sign) {
-    if (c == '-') { 
-        *ptr_sign = -1;
-        *ptr_c = getchar();
-    }
+    if (ptr_c != '-') { *ptr_sign = 1; }
+
+    *ptr_sign = -1;
 }
 
-void buildNumber(char *const ptr_c, int *const ptr_x) {
-    while (isdigit(c)) { 
-     * number + (c - '0'); 
+unsigned char charToDigit(const char c) {
+    return isdigit(c) ? c - '0' : 10;
+}
+
+void buildInt(char *const ptr_c, int *const ptr_x) {
+    if (*ptr_c == '-') { *ptr_c = getchar(); }
+
+    while (isdigit(*ptr_c)) { 
+     *x = (*ptr_c - '0'); 
         c = getchar();
     }
 }
 
 bool readInt(int *const ptr) {
     char c;
-    signed char sign = 1;
-    int number = 0;
+    signed char sign;
+    int x = 0;
     
     getFirstValidChar(&c);
        
-    if (checkFirstValidChar(c)) { return false; }
+    if (!checkFirstValidChar(c)) { return false; }
     
-
+    determineSign(&c, &sign);
     
     if (c != ' ' && c != '\n') { return false; }
     
